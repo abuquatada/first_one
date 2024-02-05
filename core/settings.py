@@ -1,6 +1,7 @@
 from datetime import timedelta
 import os
 from pathlib import Path
+from decouple import config
 
 
 
@@ -15,10 +16,10 @@ MEDIA_URL = '/media/'
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-m305=l@1mh7-s5!d9at+-zf#apsg20)%c=ef_12n)8x#esi#rx"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG' ,cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -191,6 +192,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'useless.email9893@gmail.com'
-EMAIL_HOST_PASSWORD = 'qmvz luhy tpin nhao'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
